@@ -1,0 +1,12 @@
+{% extends "orders/base.html" %}
+
+{% block title %}{{ beer.name }}{% endblock %}
+
+{% block content %}
+	<h1> {{ beer.name }}</h1>
+	<h2 class="type_closer">W stylu {{ beer.type }}</h2>
+	<p class="description">
+		AAA {{ beer.description }}
+	</p>
+{% endblock %}
+	

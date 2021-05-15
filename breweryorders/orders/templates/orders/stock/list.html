@@ -1,0 +1,76 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Piwa dostępe w ofercie{% endblock %}
+
+{% block content %}
+	<h1>Piwa aktualnie dostępne w ofercie</h1>
+		<table>
+			<tableHeader>
+				<tr>
+					<th bgcolor=""><tableHeader>Nazwa</tableHeader></th>
+					<th>Typ</th>
+            		<th>Opakowanie</th>
+					<th>Pojemność</th>
+            		<th>Status</th>
+            		<th>Cena</th>
+            		<th>Ilość</th>
+					<th>pipsztyk</th>
+				</tr>
+			</tableHeader>
+
+	{% for product in stock %}
+		<tr>
+			<td><a href="{{ product.distribution.beer.get_absolute_url }}">
+			{{ product.distribution.beer.name }}
+			</a></td>
+			<td>W stylu {{ product.distribution.beer.type }}</td>
+			<td>{{ product.distribution.package }}</td>
+			<td>{{ product.distribution.capacity }}l</td>
+			<td>{{ product.status }}</td>
+			<td>{{ product.distribution.price }} PLN</td>
+			<!--  <td><input type="button" onclick="alert('{{product.distribution.beer.name}}')" value="Zamów"> </td> */ -->
+			<td><button class="open-button" onclick="openForm('{{product.id}}')">Open Form</button></td>
+	<td><div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container">
+		<h1>Zakup</h1>
+
+			<form action="{% url "cart:cart_add" product_id=product.id %}" method="post">
+				{{ cart_product_form }}
+				{% csrf_token %}
+				<input type="submit" value="Dodaj do zamówienia"> </form>
+
+		<button type="submit" class="btn">Login</button>
+		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div></td>
+		</tr>
+
+	{% endfor %}
+	</table>
+
+<!--	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container">
+		<h1>Zakup</h1>
+
+			<form action="{% url "cart:cart_add" product_id=product.id %}" method="post">
+				{{ cart_product_form }}
+				{% csrf_token %}
+				<input type="submit" value="Dodaj do zamówienia"> </form>
+
+		<button type="submit" class="btn">Login</button>
+		<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>-->
+
+	{% include "pagination.html" with page=page_obj %}
+
+	<script>
+	function openForm(value) {
+	  document.getElementById("myForm").style.display = "block";
+	}
+
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+	</script>
+{% endblock %}

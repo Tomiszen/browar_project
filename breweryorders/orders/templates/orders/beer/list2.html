@@ -1,0 +1,19 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Nasze piwa{% endblock %}
+
+{% block content %}
+	<h1>Nasze piwa</h1>
+	{% for beer in beers %}
+		<h2>
+			<a href="{{ beer.get_absolute_url }}">
+			{{ beer.name }}
+			</a>
+		</h2>
+		<p class="type">
+			W stylu {{ beer.type }}
+		</p>
+		{{ beer.description|truncatewords:30|linebreaks }}
+	{% endfor %}
+	{% include "pagination.html" with page=page_obj %}
+{% endblock %}

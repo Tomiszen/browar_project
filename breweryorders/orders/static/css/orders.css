@@ -1,0 +1,144 @@
+body { 
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif; 
+}
+
+a { 
+    color:#ED1D24;
+    text-decoration:none; 
+}
+
+h1 { 
+	color:#000000;
+    font-weight:normal;
+    padding:0 0 0px 0;
+	border-spacing: 10px ;
+	font-family: 'Roboto', sans-serif;
+	}
+
+h2 {
+    font-weight:normal;
+    margin:0px 0px 40px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+    background-color:#ED1D24;
+    color:#FFFFFF;
+    font-weight:bold;
+	font-family: 'Changa', sans-serif;
+}
+
+tr {
+    color:#000000;
+    font-weight:300;
+	font-family: 'Changa', sans-serif;
+}
+
+tr:hover {background-color: #f5f5f5;}
+
+#content { 
+    float:left;
+    width:70%;
+    padding:0 0 0 30px; 
+}
+
+#sidebar { 
+    float:right;
+    width:15%;
+    padding:10px;
+    background:#efefef; 
+    height:100%;
+}
+
+.type { 
+    color: #232020;
+    font-family: georgia, serif;
+    font-size: 26px;
+    font-style: italic; 
+}
+
+.type_closer { 
+    color: #555;
+    font-family: 'Century-Gothic', sans-serif;
+    font-size: 26px;
+    font-style: italic;
+	line-height: 0.2 ;
+	font-weight: 100 ;
+}
+
+.description { 
+    color: #222;
+    font-family: georgia, serif;
+    font-size: 14px;
+    font-style: bold; 
+}
+
+.closer { 
+  line-height: 0.2;
+}
+
+/* pagination */
+.pagination { 
+    margin:40px 0; 
+    font-weight:bold;
+}
+
+/* forms */
+label { 
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px; 
+}
+input, textarea { 
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#ededed;
+    border:0;
+    padding:6px 10px;
+    font-size:12px;
+}
+input[type=submit] {
+    font-weight:bold;
+    background:#00abff;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase; 
+}
+.errorlist { 
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px; 
+}
+
+/* comments */
+.comment {
+    padding:10px;
+}
+.comment:nth-child(even) {
+    background:#efefef;
+}
+.comment .info {
+    font-weight:bold;
+    font-size:12px;
+    color:#666;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}

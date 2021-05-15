@@ -1,0 +1,28 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Nasze piwa{% endblock %}
+
+{% block content %}
+	<h1>Nasze piwa</h1>
+		<table>
+		<tr>
+			<th>Nazwa</th>
+			<th>Typ</th>
+		</tr>
+	{% for beer in beers %}
+		<tr>
+			<td><a href="{{ beer.get_absolute_url }}">
+			{{ beer.name }}
+			</a></td>
+
+		<td><p class="type">
+			W stylu {{ beer.type }}
+		</p></td>
+		<td>
+		{{ beer.description|truncatewords:30|linebreaks }}
+				</td>
+				<td> <input type="button" onclick="alert('{{beer.name}}')" value="Zamów"> </td></tr>
+	{% endfor %}
+	</table>
+	{% include "pagination.html" with page=page_obj %}
+{% endblock %}
